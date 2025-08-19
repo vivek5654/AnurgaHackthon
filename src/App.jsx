@@ -8,23 +8,35 @@ function NavBar() {
   const location = useLocation();
 
   return (
-    <nav className="bg-gray-800 p-4 flex justify-center space-x-6">
-      <Link
-        to="/"
-        className={`text-white hover:underline ${
-          location.pathname === '/' ? 'underline font-bold' : ''
-        }`}
-      >
-        Catalog
-      </Link>
-      <Link
-        to="/cart"
-        className={`text-white hover:underline ${
-          location.pathname === '/cart' ? 'underline font-bold' : ''
-        }`}
-      >
-        Cart
-      </Link>
+    <nav className="bg-gray-900 bg-opacity-90 backdrop-blur-md sticky top-0 z-50 shadow-md">
+      <div className="max-w-7xl mx-auto px-6">
+        <ul className="flex justify-center space-x-12 py-4">
+          <li>
+            <Link
+              to="/"
+              className={`relative text-white font-semibold transition-all duration-300 px-3 py-1 ${
+                location.pathname === '/'
+                  ? 'before:absolute before:-bottom-1 before:left-0 before:w-full before:h-1 before:rounded-full before:bg-gradient-to-r before:from-purple-500 before:to-pink-500'
+                  : 'hover:text-purple-400'
+              }`}
+            >
+              Catalog
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/cart"
+              className={`relative text-white font-semibold transition-all duration-300 px-3 py-1 ${
+                location.pathname === '/cart'
+                  ? 'before:absolute before:-bottom-1 before:left-0 before:w-full before:h-1 before:rounded-full before:bg-gradient-to-r before:from-purple-500 before:to-pink-500'
+                  : 'hover:text-purple-400'
+              }`}
+            >
+              Cart
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }
